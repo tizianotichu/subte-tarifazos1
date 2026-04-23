@@ -1,5 +1,7 @@
 # 🚇 ¿Cómo afectan los tarifazos a la cantidad de pasajeros del Subte?
 
+Proyecto de análisis de datos en R usando datos reales de transporte público (SUBE) para estudiar el impacto de aumentos tarifarios.
+
 Este proyecto analiza el impacto de los aumentos tarifarios en el uso del Subte en el AMBA, combinando datos reales de viajes (SUBE), tarifas históricas y salarios (RIPTE). El foco del trabajo está en estudiar si el encarecimiento del pasaje se asocia con cambios en la cantidad de pasajeros, usando una variable de accesibilidad económica: `sueldo/tarifa`.
 
 Es una versión refactorizada de un trabajo práctico de Introducción a la Ciencia de Datos, reorganizada como proyecto de portfolio para mostrar un flujo completo de análisis de datos: limpieza, análisis exploratorio, modelado y comunicación de resultados. 
