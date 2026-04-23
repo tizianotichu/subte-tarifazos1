@@ -1,8 +1,8 @@
 # 🚇 ¿Cómo afectan los tarifazos a la cantidad de pasajeros del Subte?
 
-Este proyecto analiza el impacto de los aumentos tarifarios en el uso del Subte en el AMBA, combinando datos reales de viajes (SUBE), tarifas históricas y salarios (RIPTE). El foco del trabajo está en estudiar si el encarecimiento del pasaje se asocia con cambios en la cantidad de pasajeros, usando una variable de accesibilidad económica: `sueldo/tarifa`. :contentReference[oaicite:0]{index=0}
+Este proyecto analiza el impacto de los aumentos tarifarios en el uso del Subte en el AMBA, combinando datos reales de viajes (SUBE), tarifas históricas y salarios (RIPTE). El foco del trabajo está en estudiar si el encarecimiento del pasaje se asocia con cambios en la cantidad de pasajeros, usando una variable de accesibilidad económica: `sueldo/tarifa`.
 
-Es una versión refactorizada de un trabajo práctico de Introducción a la Ciencia de Datos, reorganizada como proyecto de portfolio para mostrar un flujo completo de análisis de datos: limpieza, análisis exploratorio, modelado y comunicación de resultados. :contentReference[oaicite:1]{index=1}
+Es una versión refactorizada de un trabajo práctico de Introducción a la Ciencia de Datos, reorganizada como proyecto de portfolio para mostrar un flujo completo de análisis de datos: limpieza, análisis exploratorio, modelado y comunicación de resultados. 
 
 ---
 
@@ -12,7 +12,7 @@ Responder la pregunta:
 
 > ¿Cómo impactan los aumentos de tarifas en la cantidad de pasajeros del Subte?
 
-El análisis se enfoca específicamente en el Subte porque, dentro del período estudiado, fue el medio de transporte cuya tarifa más aumentó en términos nominales y también ajustada por inflación. Además, en la presentación original del trabajo se señala que fue el único transporte público cuya suba tarifaria superó a la inflación en el período analizado. :contentReference[oaicite:2]{index=2}
+El análisis se enfoca específicamente en el Subte porque, dentro del período estudiado, fue el medio de transporte cuya tarifa más aumentó en términos nominales y también ajustada por inflación. Además, en la presentación original del trabajo se señala que fue el único transporte público cuya suba tarifaria superó a la inflación en el período analizado. 
 
 ---
 
@@ -62,7 +62,7 @@ Cada fila representa:
 - con su cantidad total de viajes
 - y su contexto económico asociado
 
-Este nivel de agregación se usó para el modelado estadístico. La presentación original del trabajo remarca explícitamente que para el modelado cada observación representa los viajes de una línea en un mes determinado. :contentReference[oaicite:6]{index=6}
+Este nivel de agregación se usó para el modelado estadístico. La presentación original del trabajo remarca explícitamente que para el modelado cada observación representa los viajes de una línea en un mes determinado. 
 
 ### Principales transformaciones realizadas
 
@@ -87,7 +87,7 @@ Antes de modelar, se aplicaron varias decisiones clave para hacer el análisis m
 - se recortó el período más afectado por pandemia
 - se construyó la variable `sueldo/tarifa` como proxy de accesibilidad económica
 
-En la presentación del proyecto se justifica conservar los datos de **Metrovías para noviembre de 2021** y los de **Emova para diciembre de 2021**, porque las observaciones aparecían duplicadas por el cambio de concesión. También se explica la exclusión de fines de semana, de las tres líneas menos significativas y del tramo más afectado por la pandemia. :contentReference[oaicite:7]{index=7}
+En la presentación del proyecto se justifica conservar los datos de **Metrovías para noviembre de 2021** y los de **Emova para diciembre de 2021**, porque las observaciones aparecían duplicadas por el cambio de concesión. También se explica la exclusión de fines de semana, de las tres líneas menos significativas y del tramo más afectado por la pandemia. 
 
 ---
 
@@ -117,7 +117,7 @@ Entre los modelos evaluados se incluyeron:
 - modelos con interacciones
 - un modelo polinómico como mejora del modelo base
 
-En la presentación original, el **Modelo 5** fue señalado como el mejor equilibrio entre simplicidad y capacidad predictiva, con un **R² = 0.9195**. Luego se propuso una mejora polinómica, cuyo ajuste subió a **R² = 0.9409**, validado además por ANOVA. :contentReference[oaicite:9]{index=9}
+En la presentación original, el **Modelo 5** fue señalado como el mejor equilibrio entre simplicidad y capacidad predictiva, con un **R² = 0.9195**. Luego se propuso una mejora polinómica, cuyo ajuste subió a **R² = 0.9409**, validado además por ANOVA. 
 
 ---
 
@@ -127,7 +127,7 @@ En la presentación original, el **Modelo 5** fue señalado como el mejor equili
 - Existen diferencias importantes entre líneas.
 - El modelo con interacción captura mejor el comportamiento que los modelos más simples.
 - El modelo polinómico mejora el ajuste, aunque pierde algo de interpretabilidad.
-- Los residuos del Modelo 5 sugieren que una forma no lineal puede describir mejor el fenómeno. :contentReference[oaicite:10]{index=10}
+- Los residuos del Modelo 5 sugieren que una forma no lineal puede describir mejor el fenómeno. 
 
 ---
 
@@ -150,20 +150,20 @@ En términos generales, el proyecto sugiere que el Subte sigue funcionando como 
 Las fuentes utilizadas en este proyecto fueron:
 
 - **SUBE / datos de transporte público**  
-  Registros de viajes diarios por línea, empresa y tipo de transporte.
+  Registros de viajes diarios por línea, empresa y tipo de transporte. [datos.gob.ar](https://datos.gob.ar/dataset/transporte-usos-sube)
 
 - **Tarifas históricas del transporte**  
   Tabla armada a partir de relevamiento y reconstrucción de valores históricos.
 
 - **RIPTE**  
-  Remuneración Imponible Promedio de los Trabajadores Estables, utilizada para aproximar el salario promedio y construir la variable `sueldo/tarifa`.
+  Remuneración Imponible Promedio de los Trabajadores Estables, utilizada para aproximar el salario promedio y construir la variable `sueldo/tarifa`. [argentina.gob.ar](https://www.argentina.gob.ar/trabajo/seguridadsocial/ripte)
 
 - **IPC / inflación**  
-  Utilizado como referencia para contextualizar aumentos tarifarios y actualizar valores dentro del análisis. 
+  Utilizado como referencia para contextualizar aumentos tarifarios y actualizar valores dentro del análisis. [indec.gob.ar](https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31)
 
 ### Nota sobre las fuentes
 
-Una parte importante del trabajo consistió en integrar y armonizar fuentes distintas, con formatos y frecuencias diferentes. Por eso, además del modelado, este proyecto también refleja un proceso real de limpieza, validación y construcción de variables analíticas. La exposición original destaca explícitamente que la reconstrucción de tarifas históricas fue una de las partes más complejas del trabajo. :contentReference[oaicite:13]{index=13}
+Una parte importante del trabajo consistió en integrar y armonizar fuentes distintas, con formatos y frecuencias diferentes. Por eso, además del modelado, este proyecto también refleja un proceso real de limpieza, validación y construcción de variables analíticas. La exposición original destaca explícitamente que la reconstrucción de tarifas históricas fue una de las partes más complejas del trabajo. 
 
 ---
 
@@ -201,18 +201,15 @@ subte-fare-impact-portfolio/
 │   ├── config.R
 │   └── utils.R
 │
-├── docs/
-│   └── github_upload_steps.md
-│
 ├── run_project.R
 ├── LICENSE
 └── README.md
-
+```
 ---
 
 ## 📷 Ejemplos de visualizaciones
 
-*(agregar acá 2–3 imágenes desde outputs/figures cuando lo subas)*
+
 
 ---
 
