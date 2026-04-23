@@ -1,36 +1,176 @@
-# Subte fare impact — visual parity version
+# 🚇 ¿Cómo afectan los tarifazos a la cantidad de pasajeros del Subte?
 
-Esta es una versión refactorizada para portfolio, pero con una prioridad distinta a la anterior:
+Este proyecto analiza el impacto de los aumentos tarifarios en el uso del Subte en el AMBA, combinando datos reales de viajes (SUBE), tarifas históricas y salarios (RIPTE).
 
-**mantener una salida visual lo más parecida posible al TP original**, mientras se limpia la estructura del código.
+Es una versión refactorizada de un trabajo práctico de Introducción a la Ciencia de Datos, reorganizada como proyecto de portfolio para mostrar un flujo completo de análisis de datos.
 
-## Qué cambia respecto del script original
+---
 
-- el código ya no está todo en un solo archivo;
-- se separa en preparación, gráficos y modelado;
-- se elimina la dependencia de `tabladias.csv`;
-- se conserva el estilo visual original de los gráficos tanto como sea posible;
-- se reconstruyen columnas salariales necesarias para que el proyecto pueda correr con los archivos actuales.
+## 📌 Objetivo
 
-## Cómo correrlo
+Responder la pregunta:
 
-1. Copiá los CSV de SUBE en `data/raw/`
-2. Abrí el proyecto en RStudio
-3. Ejecutá:
+> ¿Cómo impactan los aumentos de tarifas en la cantidad de pasajeros del Subte?
+
+---
+
+## 📊 Datos utilizados
+
+Se integran tres fuentes principales:
+
+* **SUBE (usos diarios)** → viajes por día, línea y empresa
+* **Tarifas históricas** → tabla construida manualmente
+* **RIPTE (salarios)** → para construir la variable `sueldo/tarifa`
+
+---
+
+## 🧹 Limpieza y preparación de datos
+
+Antes de modelar, se aplicaron varias decisiones clave:
+
+* Se filtra solo AMBA
+* Se corrigen duplicados por cambio de concesión (Metrovías → Emova)
+* Se eliminan:
+
+  * fines de semana
+  * meses con fuerte estacionalidad (enero, febrero, diciembre)
+* Se excluye el período más afectado por pandemia
+* Se construye la variable:
+
+  * **`sueldo/tarifa`** → mide accesibilidad económica
+
+---
+
+## 📈 Análisis exploratorio (EDA)
+
+Se analizaron patrones en los datos:
+
+* Distribución de viajes por línea
+* Diferencias entre días de la semana
+* Evolución temporal del uso del Subte
+* Relación entre accesibilidad (`sueldo/tarifa`) y cantidad de viajes
+
+---
+
+## 🤖 Modelado
+
+Se compararon distintos modelos de regresión:
+
+* Modelos lineales simples
+* Modelos con efectos por línea
+* Modelos con interacción
+* Modelo polinómico
+
+El objetivo fue entender:
+
+* qué variables explican mejor la cantidad de viajes
+* si existe una relación clara entre tarifa y demanda
+
+---
+
+## 📌 Resultados (resumen)
+
+* La variable **`sueldo/tarifa`** tiene relación con la cantidad de viajes
+* Existen diferencias importantes entre líneas
+* El modelo con interacción permite capturar mejor el comportamiento
+* El modelo polinómico mejora el ajuste, pero pierde interpretabilidad
+
+---
+
+## 🧠 Qué muestra este proyecto
+
+Este proyecto no es solo modelado, también muestra:
+
+* trabajo con datos reales (no datasets de juguete)
+* limpieza y decisiones de negocio
+* integración de múltiples fuentes
+* análisis exploratorio
+* comparación de modelos
+* refactorización de código para hacerlo reproducible
+
+---
+
+## 📂 Estructura del proyecto
+
+```
+subte-fare-impact-portfolio/
+│
+├── data/
+│   ├── raw/        # datos originales (no versionados completamente)
+│   └── processed/  # datasets limpios
+│
+├── outputs/
+│   ├── figures/    # gráficos
+│   └── models/     # resultados de modelos
+│
+├── R/
+│   ├── 01_prepare_data.R
+│   ├── 02_visual_parity_plots.R
+│   ├── 03_modeling_visual_parity.R
+│   ├── config.R
+│   └── utils.R
+│
+├── docs/
+│   └── github_upload_steps.md
+│
+├── run_project.R
+└── README.md
+```
+
+---
+
+## ⚙️ Cómo ejecutar el proyecto
+
+1. Clonar el repositorio
+2. Colocar los archivos de SUBE en `data/raw/`
+3. Ejecutar:
 
 ```r
 source("run_project.R")
 ```
 
-## Estructura
+Esto:
 
-- `R/01_prepare_data.R`: carga y limpieza base
-- `R/02_visual_parity_plots.R`: gráficos parecidos al TP original
-- `R/03_modeling_visual_parity.R`: modelos y gráficos de ajuste/residuos
-- `outputs/figures/`: PNG exportados
-- `outputs/models/`: tablas y modelos
+* limpia los datos
+* genera datasets procesados
+* crea gráficos
+* ejecuta modelos
 
-## Nota importante
+---
 
-Esta versión prioriza **paridad visual** sobre “modernizar” cada gráfico.
-Eso significa que varias elecciones raras del TP original se mantienen a propósito para que el resultado final se parezca más a lo que ya habías presentado.
+## 📷 Ejemplos de visualizaciones
+
+*(agregar acá 2–3 imágenes desde outputs/figures cuando lo subas)*
+
+---
+
+## 🚀 Sobre este repositorio
+
+Este proyecto fue refactorizado a partir de un trabajo académico para:
+
+* mejorar la legibilidad del código
+* separar etapas del análisis
+* hacerlo reproducible
+* dejarlo listo como proyecto de portfolio
+
+---
+
+## 👤 Autor
+
+Tiziano Stacchino
+Estudiante de Ciencia de Datos
+
+---
+
+## 🔗 GitHub
+
+*(link al repo)*
+
+---
+
+## 💬 Nota
+
+El foco del proyecto es analítico y exploratorio.
+No busca predecir perfectamente, sino entender el fenómeno.
+
+---
