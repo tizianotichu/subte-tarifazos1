@@ -208,7 +208,7 @@ subte-fare-impact-portfolio/
 ---
 
 ## 📷 Ejemplos de visualizaciones
-[](outputs/figures/02_boxplot_dias_semana.png)
+![](outputs/figures/02_boxplot_dias_semana.png)
 
 
 ---
