@@ -209,7 +209,9 @@ subte-fare-impact-portfolio/
 
 ## 📷 Ejemplos de visualizaciones
 ![](outputs/figures/02_boxplot_dias_semana.png)
-
+![](outputs/figures/01_boxplot_lineas_subte.png)
+![](outputs/figures/04_scatter_revision_abril.png)
+![](outputs/figures/08_modpred_ajuste.png)
 
 ---
 
