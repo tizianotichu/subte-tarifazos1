@@ -1,0 +1,12 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.vscode/
+.idea/
+.DS_Store
+
+data/raw/dat-ab-usos-*.csv
+outputs/figures/*.png
+outputs/models/*.csv
+outputs/models/*.rds
